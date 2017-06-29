@@ -24,7 +24,7 @@ public:
     */
     VectorXd CalculateRMSE(const vector<VectorXd> &estimations, const vector<VectorXd> &ground_truth);
 
-    float NormalizePhi(float phi);
+    static double NormalizePhi(double phi);
 };
 
 #endif /* TOOLS_H_ */
