@@ -231,7 +231,8 @@ int runPlayback()
 
 int main()
 {
-    if (false) {
+    bool should_use_similator = true;
+    if (should_use_similator) {
         return runWS();
     } else {
         return runPlayback();

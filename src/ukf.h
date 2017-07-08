@@ -66,10 +66,13 @@ public:
     ///* Augmented state dimension
     int n_aug_;
 
+    ///* Sigma Points
+    int n_sig_;
+
     ///* Sigma point spreading parameter
     double lambda_;
 
-    float previous_timestamp_;
+    double previous_timestamp_;
     MatrixXd R_radar_;
     MatrixXd R_laser_;
     MatrixXd H_laser_;
