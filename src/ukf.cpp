@@ -40,25 +40,25 @@ UKF::UKF() {
           0, 0, 0, 0, 1;
 
     // Process noise standard deviation longitudinal acceleration in m/s^2
-    std_a_ = 0.5;
+    std_a_ = 1.1398;
 
     // Process noise standard deviation yaw acceleration in rad/s^2
-    std_yawdd_ = 0.5;
+    std_yawdd_ = 0.008;
 
     // Laser measurement noise standard deviation position1 in m
-    std_laspx_ = 0.15;
+    std_laspx_ = 0.219;
 
     // Laser measurement noise standard deviation position2 in m
-    std_laspy_ = 0.15;
+    std_laspy_ = 0.178;
 
     // Radar measurement noise standard deviation radius in m
-    std_radr_ = 0.3;
+    std_radr_ = 0.45;
 
     // Radar measurement noise standard deviation angle in rad
-    std_radphi_ = 0.03;
+    std_radphi_ = 0.031;
 
     // Radar measurement noise standard deviation radius change in m/s
-    std_radrd_ = 0.3;
+    std_radrd_ = 2.91;
 
     // Initially set to false, true after initialization with first measurement
     is_initialized_ = false;
@@ -216,7 +216,7 @@ MatrixXd UKF::SigmaPointPrediction(MatrixXd Xsig_aug, double delta_t) {
         double px_p, py_p;
 
         //avoid division by zero
-        if (fabs(yawd) > 0.001) {
+        if (fabs(yawd) > 0.000001) {
                 px_p = p_x + v / yawd * ( sin (yaw + yawd * delta_t) - sin(yaw));
                 py_p = p_y + v / yawd * ( cos(yaw) - cos(yaw + yawd * delta_t) );
         }
@@ -284,14 +284,6 @@ void UKF::PredictMeanAndCovariance(MatrixXd Xsig_pred) {
  * @param {MeasurementPackage} meas_package
  **/
 void UKF::UpdateLidar(MeasurementPackage meas_package) {
-    /**
-    TODO:
-
-    Complete this function! Use lidar data to update the belief about the object's
-    position. Modify the state vector, x_, and covariance, P_.
-
-    You'll also need to calculate the lidar NIS.
-    */
     // Lidar is 2dim (x, y)
     int n_z = 2;
 

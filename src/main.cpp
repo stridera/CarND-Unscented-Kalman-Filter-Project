@@ -117,9 +117,9 @@ json parse_data(UKF& ukf, Tools& tools, vector<VectorXd>& estimations, vector<Ve
         msgJson["rmse_vy"] = RMSE(3);
 
 //        if (sensor_type.compare("R") == 0) {
-//            cout << "Debug:  Actual: (" << x_gt << "," << y_gt << ").  Estimate: (" << p_x << "," << p_y << ").  "
-//                 << "RMSE: (" << RMSE(0) << "," << RMSE(1) << ")" <<  endl;
-            cout << "Debug:  Difference: (" << fabs(x_gt - p_x) << ", " << fabs(y_gt - p_y) << ")" << endl;
+            cout << "Debug:  Actual: (" << x_gt << "," << y_gt << ").  Estimate: (" << p_x << "," << p_y << ").  "
+                 << "RMSE: (x,y): (" << RMSE(0) << "," << RMSE(1) << ")  (vx, vy): (" << RMSE(2) << "," << RMSE(3) <<  ")" << endl;
+//            cout << "Debug:  Difference: (" << fabs(x_gt - p_x) << ", " << fabs(y_gt - p_y) << ")" << endl;
 //        }
         return msgJson;
     }
@@ -231,7 +231,7 @@ int runPlayback()
 
 int main()
 {
-    bool should_use_similator = true;
+        bool should_use_similator = false;
     if (should_use_similator) {
         return runWS();
     } else {

@@ -45,7 +45,7 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 
 double Tools::NormalizePhi(double phi)
 {
-	while (phi> M_PI) phi-=2.*M_PI;
-    while (phi<-M_PI) phi+=2.*M_PI;
+	while (phi >  M_PI) phi -= 2.0 * M_PI;
+    while (phi < -M_PI) phi += 2.0 * M_PI;
     return phi;
 }
