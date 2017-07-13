@@ -25,6 +25,10 @@ public:
     VectorXd CalculateRMSE(const vector<VectorXd> &estimations, const vector<VectorXd> &ground_truth);
 
     static double NormalizePhi(double phi);
+
+    static std::string pp(VectorXd v1);
+    static std::string pp(MatrixXd v1);
+
 };
 
 #endif /* TOOLS_H_ */

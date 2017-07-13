@@ -49,3 +49,17 @@ double Tools::NormalizePhi(double phi)
     while (phi < -M_PI) phi += 2.0 * M_PI;
     return phi;
 }
+
+
+// Pretty Print Functions.  Used to easily watch items while debugging.
+std::string Tools::pp(VectorXd v1) {
+    std::ostringstream oss;
+    oss << v1;
+    return oss.str();
+}
+
+std::string Tools::pp(MatrixXd v1) {
+    std::ostringstream oss;
+    oss << v1;
+    return oss.str();
+}
